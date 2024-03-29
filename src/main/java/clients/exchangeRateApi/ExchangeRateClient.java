@@ -1,15 +1,14 @@
 package clients.exchangeRateApi;
 
 import utiles.EndpointConfigReader;
-import entity.responseEntity.ResponseExchangeRate;
+import models.ExchangeRate.responseEntity.ExchangeRateResponseBody;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
-import org.testng.Assert;
 
 public final class ExchangeRateClient {
 
-    public ResponseExchangeRate getExchangeRate(){
+    public ExchangeRateResponseBody getExchangeRate(){
         String exchangeRateEndPointOfUSD = EndpointConfigReader.getEndpoint("exchangeRate.usd");
 
         Response response = RestAssured.given()
@@ -17,7 +16,8 @@ public final class ExchangeRateClient {
                 .when()
                 .get(exchangeRateEndPointOfUSD);
 
-        Assert.assertEquals(response.getStatusCode(),200);
-        return response.as(ResponseExchangeRate.class);
+        ExchangeRateResponseBody exchangeRateResponseBody = response.as(ExchangeRateResponseBody.class);
+        exchangeRateResponseBody.setStatusCode(response.getStatusCode());
+        return exchangeRateResponseBody;
     }
 }

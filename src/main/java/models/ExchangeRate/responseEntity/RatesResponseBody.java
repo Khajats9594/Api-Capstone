@@ -1,4 +1,4 @@
-package entity.responseEntity;
+package models.ExchangeRate.responseEntity;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
@@ -7,7 +7,7 @@ import lombok.Data;
 import java.lang.reflect.Field;
 
 @Data
-public class ResponseRates {
+public class RatesResponseBody {
     @JsonProperty("USD")
     public int uSD;
     @JsonProperty("AED")
