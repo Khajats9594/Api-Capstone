@@ -1,6 +1,6 @@
 package clients.exchangeRateApi;
 
-import Utiles.EndpointConfigReader;
+import utiles.EndpointConfigReader;
 import entity.responseEntity.ResponseExchangeRate;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;

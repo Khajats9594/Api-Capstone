@@ -1,8 +1,7 @@
-package Utiles;
+package utiles;
 
 import constants.FrameworkConstants;
 import enums.ConfigProperties;
-import io.restassured.RestAssured;
 
 import java.io.FileInputStream;
 import java.io.IOException;

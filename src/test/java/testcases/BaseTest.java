@@ -1,6 +1,6 @@
 package testcases;
 
-import Utiles.PropertyUtils;
+import utiles.PropertyUtils;
 import enums.ConfigProperties;
 import io.restassured.RestAssured;
 import org.testng.annotations.BeforeMethod;
