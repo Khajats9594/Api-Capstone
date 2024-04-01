@@ -3,6 +3,11 @@ package clients.exchangeRateApi;
 import models.ExchangeRate.responseEntity.ExchangeRateResponseBody;
 import org.testng.Assert;
 
+import java.io.File;
+
+import static io.restassured.RestAssured.given;
+import static io.restassured.module.jsv.JsonSchemaValidator.matchesJsonSchema;
+
 public class ExchangeRateAssertionHelper {
 
     public static void assertAPICallSuccessful(ExchangeRateResponseBody response) {
@@ -31,5 +36,10 @@ public class ExchangeRateAssertionHelper {
     public static void assertCurrencyPairsCount(ExchangeRateResponseBody response, int expectedCount) {
         Assert.assertNotNull(response, "Response object should not be null");
         Assert.assertEquals(response.getRatesResponseBody().size(), expectedCount, "Currency pairs count should match");
+    }
+
+    public static void assertResponseSchema(ExchangeRateResponseBody response, String schemaFilePath) {
+        given().body(response)
+                .then().body(matchesJsonSchema(new File(schemaFilePath)));
     }
 }
