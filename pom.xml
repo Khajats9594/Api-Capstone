@@ -17,6 +17,7 @@
         <jacksonDatabind.version>2.10.3</jacksonDatabind.version>
         <jacksonCore.version>2.10.2</jacksonCore.version>
         <lombok.version>1.18.24</lombok.version>
+        <schema.validator.version>4.3.3</schema.validator.version>
     </properties>
 
     <dependencies>
@@ -45,6 +46,13 @@
             <artifactId>lombok</artifactId>
             <version>${lombok.version}</version>
         </dependency>
+        <!-- https://mvnrepository.com/artifact/io.rest-assured/json-schema-validator -->
+        <dependency>
+            <groupId>io.rest-assured</groupId>
+            <artifactId>json-schema-validator</artifactId>
+            <version>${schema.validator.version}</version>
+        </dependency>
+
     </dependencies>
 
 </project>
