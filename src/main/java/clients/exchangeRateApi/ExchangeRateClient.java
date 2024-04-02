@@ -1,7 +1,7 @@
 package clients.exchangeRateApi;
 
 import utiles.EndpointConfigReader;
-import models.ExchangeRate.responseEntity.ExchangeRateResponseBody;
+import models.exchangeRate.response.ExchangeRateResponseBody;
 import io.restassured.RestAssured;
 import io.restassured.http.ContentType;
 import io.restassured.response.Response;
