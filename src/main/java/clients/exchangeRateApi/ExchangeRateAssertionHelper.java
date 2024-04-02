@@ -1,6 +1,6 @@
 package clients.exchangeRateApi;
 
-import models.ExchangeRate.responseEntity.ExchangeRateResponseBody;
+import models.exchangeRate.response.ExchangeRateResponseBody;
 import org.testng.Assert;
 
 import java.io.File;
@@ -19,15 +19,15 @@ public class ExchangeRateAssertionHelper {
         Assert.assertEquals(response.getStatusCode(), expectedStatusCode, "Status code should match");
     }
 
-    public static void assertUSDtoAEDInRange(ExchangeRateResponseBody response) {
+    public static void assertUSDtoAEDInRange(ExchangeRateResponseBody response,double minAEDRate,double maxAEDRate) {
         double usdToAedRate = response.getRatesResponseBody().getAED();
-        Assert.assertTrue(usdToAedRate >= 3.6 && usdToAedRate <= 3.7, "USD to AED rate should be in range 3.6 - 3.7");
+        Assert.assertTrue(usdToAedRate >= minAEDRate && usdToAedRate <= maxAEDRate, "USD to AED rate should be in range 3.6 - 3.7");
     }
 
-    public static void assertResponseTime(ExchangeRateResponseBody response) {
+    public static void assertResponseTime(ExchangeRateResponseBody response,long expectedTime) {
         long responseTime = response.getTimeLastUpdateUnix();
         long currentTime = System.currentTimeMillis() / 1000;
-        Assert.assertTrue((currentTime - responseTime) >= 3, "API response time should not be less than 3 seconds");
+        Assert.assertTrue((currentTime - responseTime) >= expectedTime, "API response time should not be less than 3 seconds");
     }
 
     public static void assertCurrencyPairsCount(ExchangeRateResponseBody response, int expectedCount) {

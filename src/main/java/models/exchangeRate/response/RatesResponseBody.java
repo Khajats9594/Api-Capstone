@@ -1,4 +1,4 @@
-package models.ExchangeRate.responseEntity;
+package models.exchangeRate.response;
 
 
 import com.fasterxml.jackson.annotation.JsonProperty;
